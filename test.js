@@ -9,7 +9,7 @@ const db = low(adapter)
 
 const today = moment().format('DD MMM YYYY');
 const date = '26 Apr 2018'
-const amount = '3.07'
+const amount = '3.72'
 
 const count = db
 	.get('transactions')
@@ -37,6 +37,8 @@ else {
 	// add transaction
 	db.get('transactions')
 		.push({ id: count +1, date: date, amount: amount})
+		.write()
+	db.update('count', n => n + 1)
 		.write()
 	console.log('New Tranaction: ' + amount)
 

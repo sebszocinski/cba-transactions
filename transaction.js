@@ -83,6 +83,9 @@ async function run() {
 		db.get('transactions')
 			.push({ id: count +1, date: date, amount: amount})
 			.write()
+		db.update('count', n => n + 1)
+			.write()
+
 		console.log('New Tranaction: ' + amount)
 
 		var totalSpent = 0;

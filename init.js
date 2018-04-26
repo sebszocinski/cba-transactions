@@ -11,3 +11,5 @@ db.defaults({ transactions: [], user: {}, count: 0 })
 
 db.set('user.name', CREDS.db_user)
 	.write()
+
+console.log('Database created.')
